@@ -1,0 +1,44 @@
+/*
+ *	C programlama dili - Ödev 2 Alternatif 
+ *	
+ * 	NİSA DİLARA KORKMAZ
+ */
+#include <stdio.h>
+#include <math.h>
+
+typedef struct noktalar
+	{
+		int x,y;
+	}nokta;
+
+double noktalarArasiUzaklik(nokta n1, nokta n2) 
+{
+	double uzaklik = 0.0;
+	
+	uzaklik = sqrt(pow(n2.y - n1.y, 2) + pow(n2.x - n1.x, 2));
+	
+	return uzaklik; 	
+}
+
+int main(void)
+{
+	
+	nokta n[5];
+
+	for (int i = 0; i < 5; ++i){
+		printf("%d. noktanin koordinatlarini giriniz (X Y): ",i+1);
+		scanf("%d%d", &n[i].x, &n[i].y);		
+	}
+	
+	for(int j = 0; j < 5; ++j)
+	{	
+		for (int k = j + 1 ; k < 5; ++k)
+		{
+			printf("%d. nokta ve %d. nokta arasindaki uzaklik: ", j+1,k+1);
+			printf("%.2lf birim\n",noktalarArasiUzaklik(n[j],n[k]));
+		} 	
+	} 
+
+	
+	return 0;
+}
